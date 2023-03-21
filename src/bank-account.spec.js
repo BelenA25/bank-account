@@ -30,7 +30,7 @@ describe("Bank Account", () => {
     expect(account.balance).toEqual(50);
   });
 
-  xit("can withdraw money sequentially", () => {
+  it("can withdraw money sequentially", () => {
     const account = new BankAccount();
     account.open();
     account.deposit(100);
