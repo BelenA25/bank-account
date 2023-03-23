@@ -11,57 +11,53 @@ export class BankAccount {
   }
 
   open() {
-    if(this.active == true)
-    {
+    if (this.active == true) {
       throw this.error;
     }
-    else
-    {
+    else {
       this.active = true;
     }
   }
 
   close() {
-    if(this.active == false)
-    {
+    if (this.active == false) {
       throw this.error;
     }
-    else
-    {
+    else {
       this.active = false;
-      this.total=0;
+      this.total = 0;
     }
   }
 
   deposit(amount) {
-    if(this.active == false)
-    {
+    if (this.active == false) {
       throw this.error;
     }
     this.total = this.total + amount;
   }
 
   withdraw(amount) {
-    if(this.active == false)
-    {
+    if (this.active == false) {
       throw this.error;
     }
-    else
-    {
-      if (amount > this.total)
-      {
+    else {
+      if (amount < 0) {
         throw this.error;
       }
-      else
-      {
-        this.total = this.total - amount;
+      else {
+        if (amount > this.total) {
+          throw this.error;
+        }
+        else {
+          this.total = this.total - amount;
+        }
       }
+
     }
   }
 
   get balance() {
-    if(this.active == false)
-    {
+    if (this.active == false) {
       throw this.error;
     }
     return this.total;
