@@ -27,6 +27,10 @@ export class BankAccount {
   }
 
   withdraw(amount) {
+    if(this.active == false)
+    {
+      throw this.error;
+    }
     this.total = this.total - amount;
   }
 
