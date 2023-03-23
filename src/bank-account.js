@@ -15,7 +15,15 @@ export class BankAccount {
   }
 
   close() {
-    this.active = false;
+    
+    if(this.active == false)
+    {
+      throw this.error;
+    }
+    else
+    {
+      this.active = false;
+    }
   }
 
   deposit(amount) {
