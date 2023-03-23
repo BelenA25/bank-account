@@ -6,17 +6,23 @@
 export class BankAccount {
   constructor() {
     this.total = 0;
+    this.active = false;
+    this.error = new ValueError();
   }
 
   open() {
-    
+    this.active = true;
   }
 
   close() {
-    throw new Error("Remove this statement and implement this function");
+    this.active = false;
   }
 
   deposit(amount) {
+    if(this.active == false)
+    {
+      throw this.error;
+    }
     this.total = this.total + amount;
   }
 
@@ -25,6 +31,10 @@ export class BankAccount {
   }
 
   get balance() {
+    if(this.active == false)
+    {
+      throw this.error;
+    }
     return this.total;
   }
 }
