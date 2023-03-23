@@ -33,7 +33,16 @@ export class BankAccount {
     if (this.active == false) {
       throw this.error;
     }
-    this.total = this.total + amount;
+    else {
+      if (amount < 0) {
+        throw this.error;
+      }
+      else {
+        this.total = this.total + amount;
+      }
+
+    }
+
   }
 
   withdraw(amount) {
