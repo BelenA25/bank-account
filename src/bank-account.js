@@ -46,7 +46,17 @@ export class BankAccount {
     {
       throw this.error;
     }
-    this.total = this.total - amount;
+    else
+    {
+      if (amount > this.total)
+      {
+        throw this.error;
+      }
+      else
+      {
+        this.total = this.total - amount;
+      }
+    }
   }
 
   get balance() {
