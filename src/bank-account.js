@@ -29,6 +29,7 @@ export class BankAccount {
     else
     {
       this.active = false;
+      this.total=0;
     }
   }
 
