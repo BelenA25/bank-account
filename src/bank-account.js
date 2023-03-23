@@ -11,11 +11,17 @@ export class BankAccount {
   }
 
   open() {
-    this.active = true;
+    if(this.active == true)
+    {
+      throw this.error;
+    }
+    else
+    {
+      this.active = true;
+    }
   }
 
   close() {
-    
     if(this.active == false)
     {
       throw this.error;
